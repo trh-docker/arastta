@@ -12,6 +12,7 @@ RUN apt-get update &&\
 RUN rm -rf /var/www/html && mkdir /var/www/html && cd /var/www/html &&\
     git clone https://github.com/arastta/arastta.git . &&\
     mkdir /var/www/html/public_html &&\
+    composer.phar install &&\
     chown -R www-data:www-data . &&\
     a2enmod rewrite && a2enmod headers &&\
     apt-get autoclean && apt-get autoremove &&\
